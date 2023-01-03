@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space discovery</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Major+Mono+Display&family=Quicksand&family=Roboto:wght@100&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&family=Walter+Turncoat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="content" id="titre">
+        <h1>Space discovery</h1>
+        <p>
+          NASA (National Aeronautics and Space Administration) is an agency
+          responsible for the space program and research.<br />
+          Scroll down to discover some information from the NASA, as astronomy
+          pictures, objects near the earth at a given date or exoplanets that we
+          already know.
+        </p>
+      </div>
+    </div>
+    <div class="container-2" id="container-2">
+      <div class="content" id="APOD">
+        <h2>Astronomy picture of the day</h2>
+        <p>
+          Each day a different image or photograph of our fascinating universe
+          is featured, along with a brief explanation written by a professional
+          astronomer.<br />
+          It's provided by NASA and Michigan Technology University since June
+          16, 1995.<br />
+          You can select a date below between June 16, 1995 and today. Before
+          this date, no picture will be displayed.
+        </p>
+        <div id="input">
+          <input type="date" id="date" />
+        </div>
+        <h3 id="picture_title"></h3>
+        <p id="picture_description"></p>
+      </div>
+    </div>
+    <div class="container-3">
+      <div class="content" id="exoplanet"><h2>Exoplanets</h2></div>
+    </div>
+    <div class="widgets">
+      <a href="#titre" class="btn"></a>
+      <a href="#APOD" class="btn"></a>
+      <a href="#Asteroid" class="btn"></a>
+    </div>
+    <script type="module" src="script.js" defer></script>
+  </body>
+</html>

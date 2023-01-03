@@ -1,0 +1,138 @@
+/*GENERAL*/
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Major Mono Display", Helvetica, sans-serif;
+  font-size: 64px;
+  color: #ffffff;
+  background-color: rgba(45, 86, 201, 0.5);
+  padding: 12px;
+}
+
+h2 {
+  font-family: "Major Mono Display", Helvetica, sans-serif;
+  font-size: 32px;
+  color: #333;
+  background-color: rgba(251, 251, 251, 0.78);
+  padding: 12px;
+}
+
+h3 {
+  font-family: "Major Mono Display", Helvetica, sans-serif;
+  font-size: 22px;
+  color: rgba(251, 251, 251, 0.78);
+  background-color: rgb(31, 31, 31);
+  padding: 12px;
+}
+
+/*PARALLAX*/
+.container-1 {
+  background: url(./f0a0134dfba1f261f046774cedf6199c--blue-art-papers-co.jpeg)
+    no-repeat fixed center;
+  background-size: cover;
+}
+
+.container-2 {
+  background: url(./939270.webp) no-repeat fixed center;
+  background-size: cover;
+}
+
+.container-3 {
+  background: url(./2926fa7d562d1b5b6f7292a4c2ee1946.jpeg) no-repeat fixed
+    center;
+  background-size: cover;
+}
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+}
+
+.content p {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  width: 60%;
+  font-size: 18px;
+  color: #333;
+  background-color: rgba(251, 251, 251, 0.78);
+  padding: 1em;
+  margin: 1em;
+}
+
+/*TITRE*/
+#titre h1 {
+  margin: 24px;
+}
+
+/*APOD*/
+input {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  font-size: 18px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+#picture_description {
+  background: none;
+  color: #ffffff;
+  width: 40%;
+}
+
+#picture_title {
+  background: none;
+  width: 40%;
+}
+
+button {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  padding: 0.8em;
+  margin: 1em;
+  color: #ffffff;
+  background-color: #333;
+  font-size: 18px;
+  border-radius: 10%;
+}
+
+button a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/*WIDGETS*/
+.widgets {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  right: 24px;
+  justify-content: center;
+}
+
+.widgets a {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid rgb(168, 164, 164);
+  border-radius: 50%;
+  margin: 12px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.543);
+  box-shadow: 0 0 8px 0 grey;
+}
+
+/*Responsive*/
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+  .content p {
+    font-size: 16px;
+  }
+}
