@@ -39,20 +39,44 @@
           this date, no picture will be displayed.
         </p>
         <div id="input">
-          <input type="date" id="date" />
+          <input type="date" id="date" min="1995-06-16" />
         </div>
         <h3 id="picture_title"></h3>
         <p id="picture_description"></p>
       </div>
     </div>
     <div class="container-3">
-      <div class="content" id="exoplanet"><h2>Exoplanets</h2></div>
+      <div class="content" id="mars">
+        <h2>Last Weather on Mars</h2>
+        <p>
+          NASA's InSight Mars lander used to take weather measurements
+          (temperature, wind, pressure) on the surface of Mars at Elysium
+          Planitia, a flat, smooth plain near Mars' equator.<br />
+          Unfortunately, NASA's Insight Mission ended in January 2023, but the
+          Perseverance Rover still collects data from Mars at the Jezero
+          Crater.<br />
+          Discover these data and the current weather on Mars. Spoiler : it's
+          very cold !
+        </p>
+        <p id="sols"></p>
+        <hr />
+        <div class="meteo">
+          <div class="infoMars">
+            <div id="season"></div>
+            <div id="temperature"></div>
+          </div>
+          <div class="chart">
+            <canvas id="chart" aria-label="chart" role="img"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="widgets">
       <a href="#titre" class="btn"></a>
       <a href="#APOD" class="btn"></a>
       <a href="#Asteroid" class="btn"></a>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="script.js" defer></script>
   </body>
 </html>
