@@ -58,7 +58,8 @@ function displayPicture() {
 
 // Visualisation graphique des données météo sur MARS
 const ctx = document.getElementById("chart");
-Chart.defaults.color = "white";
+Chart.defaults.color = "black";
+Chart.defaults.backgroundColor = "#9BD0F5";
 const temperatureChart = new Chart(ctx, {
   type: "line",
   data: {
@@ -67,22 +68,29 @@ const temperatureChart = new Chart(ctx, {
       {
         label: "Previous lowest temperatures",
         data: [-87.1, -84.8, -85, -85.4, -86.2, -84.4],
-        backgroundColor: "#FFFFFF",
-        borderColor: "white",
+        backgroundColor: "#672a09",
+        borderColor: "#672a09",
       },
       {
         label: "Previous highest temperatures",
         color: "white",
         data: [-20.3, -18.2, -14.6, -13.4, -13.8, -20.3],
-        backgroundColor: "#FFFFFF",
-        borderColor: "white",
+        backgroundColor: "#eeae8a",
+        borderColor: "#eeae8a",
       },
     ],
   },
   options: {
     plugins: {
-      labels: {
-        fontColor: "white",
+      legend: {
+        labels: {
+          fontColor: "black",
+          padding: 24,
+          font: {
+            family: "'Quicksand', Helvetica, sans-serif",
+            size: 16,
+          },
+        },
       },
     },
     scales: {
@@ -91,20 +99,22 @@ const temperatureChart = new Chart(ctx, {
         suggestedMin: -100,
         ticks: {
           font: {
-            size: 14,
+            family: "'Quicksand', Helvetica, sans-serif",
+            size: 16,
           },
-          color: "white",
+          color: "black",
         },
       },
       x: {
         ticks: {
           font: {
-            size: 14,
+            size: 16,
           },
-          color: "white",
+          color: "black",
         },
       },
     },
+    responsive: true,
   },
 });
 

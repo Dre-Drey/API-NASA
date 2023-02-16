@@ -105,11 +105,12 @@ a {
 
 .meteo {
   display: flex;
+  flex-direction: column;
   text-align: left;
   flex-wrap: wrap;
   width: 80%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   margin: auto;
 }
 
@@ -138,7 +139,7 @@ hr {
   color: rgb(251, 251, 251);
   font-size: 20px;
   text-align: left;
-  margin-bottom: 1em;
+  margin: 24px;
 }
 
 #temperature {
@@ -147,22 +148,29 @@ hr {
   background-color: transparent;
   color: rgb(251, 251, 251);
   text-align: left;
-  margin: auto;
+  margin: 24px;
   /* padding-top: 0px;
   margin-top: 0px;
   margin-left: 2vw; */
 }
 
-.chart {
-  max-width: 80%;
-  height: 300px;
+.chart,
+#chart {
+  display: inline-block;
+  position: relative;
+  width: 80%;
   text-align: center;
   margin-left: 1em;
+  margin: 48px;
+}
+#chart {
+  background-color: rgba(251, 251, 251, 0.78);
 }
 
 .infoMars {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
 }
 
 /*WIDGETS*/
