@@ -56,79 +56,18 @@ function displayPicture() {
     });
 }
 
-// Visualisation graphique des données météo sur MARS
-const ctx = document.getElementById("chart");
-Chart.defaults.color = "black";
-Chart.defaults.backgroundColor = "#9BD0F5";
-const temperatureChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: ["J-6", "J-5", "J-4", "J-3", "J-2", "J-1"],
-    datasets: [
-      {
-        label: "Previous lowest temperatures",
-        data: [-87.1, -84.8, -85, -85.4, -86.2, -84.4],
-        backgroundColor: "#672a09",
-        borderColor: "#672a09",
-      },
-      {
-        label: "Previous highest temperatures",
-        color: "white",
-        data: [-20.3, -18.2, -14.6, -13.4, -13.8, -20.3],
-        backgroundColor: "#eeae8a",
-        borderColor: "#eeae8a",
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          fontColor: "black",
-          padding: 24,
-          font: {
-            family: "'Quicksand', Helvetica, sans-serif",
-            size: 16,
-          },
-        },
-      },
-    },
-    scales: {
-      y: {
-        suggestedMax: -50,
-        suggestedMin: -100,
-        ticks: {
-          font: {
-            family: "'Quicksand', Helvetica, sans-serif",
-            size: 16,
-          },
-          color: "black",
-        },
-      },
-      x: {
-        ticks: {
-          font: {
-            size: 16,
-          },
-          color: "black",
-        },
-      },
-    },
-    responsive: true,
-  },
-});
-
+//Données météo sur Mars
 function fetchWeather() {
   fetch(
-    "https://mars.nasa.gov/rss/api/?feed=weather&category=mars2020&feedtype=json&api_key=rAfAxs6xqfoUBzxLvSRyQUNgE7RYURRNkf2jrj2a"
+    "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
   )
     .then((results) => {
       return results.json();
     })
     .then((weatherData) => {
-      console.log(weatherData.sols[6]);
+      console.log(weatherData.soles[0]);
       const sols = document.querySelector("#sols");
-      const dateOnEarth = weatherData.sols[6].terrestrial_date;
+      const dateOnEarth = weatherData.soles[0].terrestrial_date;
       const dateOnEarthsplitted = dateOnEarth.split("-");
       const newDateOnEarth =
         dateOnEarthsplitted[0] +
@@ -137,12 +76,90 @@ function fetchWeather() {
         " the " +
         dateOnEarthsplitted[2] +
         "th";
-      sols.innerHTML = `Sol ${weatherData.sols[6].sol}</br>${newDateOnEarth}`;
+      sols.innerHTML = `Sol ${weatherData.soles[0].sol}</br>${newDateOnEarth}`;
       const temperature = document.querySelector("#temperature");
-      temperature.innerHTML = `High ${weatherData.sols[6].max_temp} ºC</br>Low ${weatherData.sols[6].min_temp} ºC`;
+      temperature.innerHTML = `Highest : ${weatherData.soles[0].max_temp} ºC</br>Lowest : ${weatherData.soles[0].min_temp} ºC`;
       const season = document.querySelector("#season");
-      season.innerHTML = `It's ${weatherData.sols[6].season}`;
+      season.innerHTML = `It's ${weatherData.soles[0].season} on Mars`;
+
+      // Visualisation graphique des données météo sur MARS
+      const ctx = document.getElementById("chart");
+      Chart.defaults.color = "black";
+      Chart.defaults.backgroundColor = "#9BD0F5";
+      const getDataMin = () => {
+        let dataMin = [];
+        for (let i = 1; i < 7; i++) {
+          dataMin.push(weatherData.soles[i].min_temp);
+        }
+        console.log(dataMin);
+        return dataMin;
+      };
+      const getDataMax = () => {
+        let dataMax = [];
+        for (let i = 1; i < 7; i++) {
+          dataMax.push(weatherData.soles[i].max_temp);
+        }
+        console.log(dataMax);
+        return dataMax;
+      };
+      const temperatureChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["J-6", "J-5", "J-4", "J-3", "J-2", "J-1"],
+          datasets: [
+            {
+              label: "Previous lowest temperatures",
+              data: getDataMin(),
+              backgroundColor: "#672a09",
+              borderColor: "#672a09",
+            },
+            {
+              label: "Previous highest temperatures",
+              color: "white",
+              data: getDataMax(),
+              backgroundColor: "#eeae8a",
+              borderColor: "#eeae8a",
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              labels: {
+                fontColor: "black",
+                padding: 24,
+                font: {
+                  family: "'Quicksand', Helvetica, sans-serif",
+                  size: 16,
+                },
+              },
+            },
+          },
+          scales: {
+            y: {
+              suggestedMax: -50,
+              suggestedMin: -100,
+              ticks: {
+                font: {
+                  family: "'Quicksand', Helvetica, sans-serif",
+                  size: 16,
+                },
+                color: "black",
+              },
+            },
+            x: {
+              ticks: {
+                font: {
+                  size: 16,
+                },
+                color: "black",
+              },
+            },
+          },
+          responsive: true,
+        },
+      });
     });
 }
-let dicoDesMois = ["January", "February", "March", "April"];
+let dicoDesMois = ["January", "February", "March", "April", "May"];
 fetchWeather();

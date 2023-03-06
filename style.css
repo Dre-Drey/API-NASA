@@ -45,6 +45,11 @@ h3 {
   background-size: cover;
 }
 
+.container-4 {
+  background: url(./HeartSoul_deHaro_1977.jpeg) no-repeat fixed center;
+  background-size: cover;
+}
+
 .content {
   width: 100%;
   min-height: 100vh;
@@ -149,9 +154,6 @@ hr {
   color: rgb(251, 251, 251);
   text-align: left;
   margin: 24px;
-  /* padding-top: 0px;
-  margin-top: 0px;
-  margin-left: 2vw; */
 }
 
 .chart,
@@ -171,6 +173,79 @@ hr {
   display: flex;
   justify-content: space-around;
   margin: auto;
+}
+
+/*ASTEROIDES*/
+.toto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#earth {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin: 48px;
+  background-image: url(./earth.png);
+  background-size: 300px;
+  overflow: visible;
+}
+
+#moonContainer {
+  z-index: 0;
+  position: absolute;
+  top: -20px;
+  left: -85px;
+  width: 400px;
+  height: 406px;
+  /*border: 2px solid white;*/
+  border-radius: 228px;
+
+  -webkit-animation-name: moonOrbit;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 15s;
+}
+
+#moon {
+  z-index: -1;
+  position: absolute;
+  top: -55px;
+  left: 175px;
+  width: 60px;
+  height: 60px;
+  background-image: url(./aste.png);
+  background-size: 60px;
+
+  -webkit-animation-name: moonRotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-duration: 5s;
+}
+
+@-webkit-keyframes moonOrbit {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes moonRotate {
+  from {
+    -webkit-transform: rotate(360deg);
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+input,
+#input {
+  z-index: 2;
 }
 
 /*WIDGETS*/
