@@ -29,24 +29,24 @@ h3 {
 
 /*PARALLAX*/
 .container-1 {
-  background: url(./f0a0134dfba1f261f046774cedf6199c--blue-art-papers-co.jpeg)
+  background: url(./img/f0a0134dfba1f261f046774cedf6199c--blue-art-papers-co.jpeg)
     no-repeat fixed center;
   background-size: cover;
 }
 
 .container-2 {
-  background: url(./939270.webp) no-repeat fixed center;
+  background: url(./img/939270.webp) no-repeat fixed center;
   background-size: cover;
 }
 
 .container-3 {
-  background: url(./NationalGeographic_Mars01_Daedalusspaceship.jpeg) no-repeat
-    fixed center;
+  background: url(./img/NationalGeographic_Mars01_Daedalusspaceship.jpeg)
+    no-repeat fixed center;
   background-size: cover;
 }
 
 .container-4 {
-  background: url(./HeartSoul_deHaro_1977.jpeg) no-repeat fixed center;
+  background: url(./img//HeartSoul_deHaro_1977.jpeg) no-repeat fixed center;
   background-size: cover;
 }
 
@@ -91,6 +91,7 @@ input {
 
 #picture_title {
   background: none;
+  color: #ffffff;
   width: 40%;
 }
 
@@ -188,7 +189,7 @@ hr {
   margin-top: 100px;
   margin-bottom: 100px;
   margin: 48px;
-  background-image: url(./earth.png);
+  background-image: url(./img/earth.png);
   background-size: 300px;
   overflow: visible;
 }
@@ -216,7 +217,7 @@ hr {
   left: 175px;
   width: 60px;
   height: 60px;
-  background-image: url(./aste.png);
+  background-image: url(./img/aste.png);
   background-size: 60px;
 
   -webkit-animation-name: moonRotate;
@@ -244,8 +245,21 @@ hr {
 }
 
 input,
-#input {
+#input,
+#asteroid_input {
   z-index: 2;
+}
+
+#asteroid_title {
+  background: none;
+  color: #ffffff;
+  width: 40%;
+}
+
+#asteroid_description {
+  background: none;
+  color: #ffffff;
+  width: 40%;
 }
 
 /*WIDGETS*/

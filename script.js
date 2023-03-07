@@ -59,13 +59,12 @@ function displayPicture() {
 //Données météo sur Mars
 function fetchWeather() {
   fetch(
-    "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json"
+    "https://mars.nasa.gov/rss/api/?feed=weather&category=msl&feedtype=json" //ancienne API : https://mars.nasa.gov/rss/api/?feed=weather&category=mars2020&feedtype=json&api_key=rAfAxs6xqfoUBzxLvSRyQUNgE7RYURRNkf2jrj2a
   )
     .then((results) => {
       return results.json();
     })
     .then((weatherData) => {
-      console.log(weatherData.soles[0]);
       const sols = document.querySelector("#sols");
       const dateOnEarth = weatherData.soles[0].terrestrial_date;
       const dateOnEarthsplitted = dateOnEarth.split("-");
@@ -91,7 +90,6 @@ function fetchWeather() {
         for (let i = 1; i < 7; i++) {
           dataMin.push(weatherData.soles[i].min_temp);
         }
-        console.log(dataMin);
         return dataMin;
       };
       const getDataMax = () => {
@@ -99,7 +97,6 @@ function fetchWeather() {
         for (let i = 1; i < 7; i++) {
           dataMax.push(weatherData.soles[i].max_temp);
         }
-        console.log(dataMax);
         return dataMax;
       };
       const temperatureChart = new Chart(ctx, {
@@ -163,3 +160,43 @@ function fetchWeather() {
 }
 let dicoDesMois = ["January", "February", "March", "April", "May"];
 fetchWeather();
+
+//Données sur les astéroides
+document.getElementById("asteroid_date").oninput = function () {
+  getDataAsteroids;
+};
+
+function getDateAsteroid() {
+  const date = document.getElementById("asteroid_date").value;
+  return date;
+}
+
+function getDataAsteroids() {
+  const startURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=";
+  const endURL = "&api_key=byMXZRYPDymQvCcgAEarTFUmCZVtf4OXrnRu5UPY";
+  fetch(
+    startURL + getDateAsteroid() + "&end_date=" + getDateAsteroid() + endURL
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      const length = data.near_earth_objects["2023-03-03"];
+      const description = document.querySelector("#asteroid_description");
+      description.innerHTML = `${length.length} asteroids were near the eart on this date`;
+      description.style.setProperty("background-color", "#333");
+    });
+}
+
+getDataAsteroids();
+
+// document.getElementById("asteroid_date").oninput = getDataAsteroids();
+
+// function fetchAsteroids () {
+//   const dateAsteroid = () => {
+//     return document.getElementById("asteroid_input").value
+//   }
+//   const asteroidsData = await fetch ("https://api.nasa.gov/neo/rest/v1/feed?start_date=" + dateAsteroid() +"&api_key=rAfAxs6xqfoUBzxLvSRyQUNgE7RYURRNkf2jrj2a&date=")
+//   console.log(asteroidsData)
+// }
