@@ -1,7 +1,7 @@
 <!-- PROJECT TITLE -->
 <br />
 <div align="center">
-    <img src="./earth.png" alt="Logo" width="80" height="80">
+    <img src="./img/earth.png" alt="Logo" width="80" height="80">
   <h3 align="center">API NASA - SPACE DISCOVERY</h3>
 
   <p align="center">
